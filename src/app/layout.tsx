@@ -42,6 +42,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head />
       <body className="antialiased">
         <SessionProviderWrapper>{children}</SessionProviderWrapper>
       </body>
