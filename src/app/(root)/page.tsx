@@ -1,8 +1,6 @@
 // src/app/(root)/page.tsx
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import CTASection from "@/components/sections/CTASection";
