@@ -1,5 +1,7 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 
 export const metadata: Metadata = {
   title: "TradeFlow - Manage Your Jobs Easily",
@@ -13,7 +15,6 @@ export const metadata: Metadata = {
     "SaaS",
     "Cost Calculations",
   ],
-  viewport: "width=device-width, initial-scale=1",
   authors: [
     { name: "Your Company Name", url: "https://yourcompanydomain.com" },
   ],
@@ -41,7 +42,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SessionProviderWrapper>{children}</SessionProviderWrapper>
+      </body>
     </html>
   );
 }
