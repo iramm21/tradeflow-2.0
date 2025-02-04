@@ -1,7 +1,7 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "TradeFlow - Manage Your Jobs Easily",
@@ -44,7 +44,10 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body className="antialiased">
-        <SessionProviderWrapper>{children}</SessionProviderWrapper>
+        <SessionProviderWrapper>
+          <SpeedInsights />
+          {children}
+        </SessionProviderWrapper>
       </body>
     </html>
   );
