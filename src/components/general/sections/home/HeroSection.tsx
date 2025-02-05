@@ -26,7 +26,7 @@ export default function HeroSection() {
               Get Started
             </Link>
             <Link
-              href="/(root)/about"
+              href="/about"
               className="px-6 py-3 bg-backgroundDark text-foreground rounded hover:bg-backgroundDark/90 transition-colors"
             >
               Learn More
