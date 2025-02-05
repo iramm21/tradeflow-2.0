@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -14,15 +14,26 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg("");
+
+    // Call signIn with redirect set to false
     const res = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
+
+    // If an error occurs, set an error message.
     if (res?.error) {
       setErrorMsg("Invalid credentials. Please try again.");
     } else {
-      router.push("/dashboard");
+      // Retrieve the session so we can get the user ID.
+      const session = await getSession();
+      if (session?.user?.id) {
+        router.push(`/user/${session.user.id}/dashboard`);
+      } else {
+        // Fallback redirection if, for some reason, the user id is missing.
+        router.push("/");
+      }
     }
   }
 
