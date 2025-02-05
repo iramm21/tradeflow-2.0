@@ -1,5 +1,7 @@
-// src/components/sections/FeaturesSection.tsx
 "use client";
+
+import FeatureCard from "@/components/cards/FeatureCard";
+import { FiSettings, FiTrendingUp, FiUserCheck } from "react-icons/fi";
 
 export default function FeaturesSection() {
   return (
@@ -9,26 +11,21 @@ export default function FeaturesSection() {
           Key Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-2">Project Management</h3>
-            <p className="text-gray-600">
-              Organize and track your projects with intuitive dashboards and
-              analytics.
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-2">Job Tracking</h3>
-            <p className="text-gray-600">
-              Monitor your job progress and easily manage schedules and tasks.
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-2">Cost Calculations</h3>
-            <p className="text-gray-600">
-              Automatically compute project costs, margins, and more with
-              integrated tools.
-            </p>
-          </div>
+          <FeatureCard
+            icon={<FiSettings />}
+            title="Intuitive Management"
+            description="Easily manage your projects, tasks, and team members all in one place."
+          />
+          <FeatureCard
+            icon={<FiTrendingUp />}
+            title="Insightful Analytics"
+            description="Monitor your performance with real-time analytics and reporting."
+          />
+          <FeatureCard
+            icon={<FiUserCheck />}
+            title="Seamless Collaboration"
+            description="Work closely with your team with efficient communication and scheduling tools."
+          />
         </div>
       </div>
     </section>

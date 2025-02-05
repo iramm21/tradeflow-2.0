@@ -1,11 +1,10 @@
-// src/components/sections/CTASection.tsx
 "use client";
 
 import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="bg-indigo-600 py-16">
+    <section className="bg-primary py-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-white mb-4">
           Ready to transform your business?
@@ -15,7 +14,7 @@ export default function CTASection() {
         </p>
         <Link
           href="/auth/register"
-          className="px-8 py-4 bg-white text-indigo-600 font-semibold rounded hover:bg-gray-100 transition-colors"
+          className="px-8 py-4 bg-white text-primary font-semibold rounded hover:bg-gray-100 transition-colors"
         >
           Sign Up Now
         </Link>

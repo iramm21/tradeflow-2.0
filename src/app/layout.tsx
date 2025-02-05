@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper";
@@ -42,11 +43,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head />
-      <body className="antialiased">
+      <head>
+        {/* Optionally add additional meta tags or font links here */}
+      </head>
+      <body className="antialiased flex flex-col min-h-screen">
         <SessionProviderWrapper>
           <SpeedInsights />
-          {children}
+          <main className="flex-grow">{children}</main>
         </SessionProviderWrapper>
       </body>
     </html>

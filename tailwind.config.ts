@@ -10,7 +10,17 @@ export default {
     extend: {
       colors: {
         background: "var(--background)",
+        backgroundDark: "var(--background-dark)",
+        backgroundDarkest: "var(--background-darkest)",
         foreground: "var(--foreground)",
+        foregroundLight: "var(--foreground-light)",
+        foregroundLightest: "var(--foreground-lightest)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
       },
     },
   },

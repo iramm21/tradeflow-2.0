@@ -1,11 +1,10 @@
-// src/components/layout/Footer.tsx
 "use client";
 
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-6">
+    <footer className="bg-backgroundDarkest text-foregroundLightest py-6">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} TradeFlow. All rights reserved.
