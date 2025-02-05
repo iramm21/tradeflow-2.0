@@ -15,11 +15,15 @@ export default function DashboardSummaryCard({
   icon,
 }: DashboardSummaryCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4 hover:shadow-xl transition-shadow duration-300">
-      <div className="text-primary text-4xl">{icon || <FiClipboard />}</div>
+    <div className="bg-white rounded-lg shadow-md p-4 md:p-6 flex items-center space-x-4 hover:shadow-xl transition-shadow duration-300">
+      <div className="text-primary text-3xl md:text-4xl">
+        {icon || <FiClipboard />}
+      </div>
       <div>
-        <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-        <p className="text-2xl text-foregroundLight">{value}</p>
+        <h3 className="text-lg md:text-xl font-semibold text-foreground">
+          {title}
+        </h3>
+        <p className="text-xl md:text-2xl text-foregroundLight">{value}</p>
       </div>
     </div>
   );

@@ -11,9 +11,12 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen flex flex-col">
       <DashboardHeader />
-      <div className="flex flex-grow">
-        <DashboardSidebar />
-        <main className="flex-grow p-6">{children}</main>
+      <div className="flex flex-col md:flex-row flex-grow">
+        {/* Sidebar: hidden on small screens, visible on md and larger */}
+        <div>
+          <DashboardSidebar />
+        </div>
+        <main className="flex-grow p-4 md:p-6">{children}</main>
       </div>
     </div>
   );

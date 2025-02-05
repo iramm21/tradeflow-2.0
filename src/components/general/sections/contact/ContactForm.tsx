@@ -18,13 +18,13 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-bold text-center text-foreground mb-6">
+    <div className="p-4 md:p-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-6">
         Send Us a Message
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto space-y-6 bg-white p-8 rounded-lg shadow-lg"
+        className="max-w-lg mx-auto space-y-6 bg-white p-4 md:p-8 rounded-lg shadow-lg"
       >
         <div>
           <label htmlFor="contact-name" className="block text-foreground mb-1">
@@ -72,12 +72,12 @@ export default function ContactForm() {
         </div>
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+          className="w-full py-2 px-4 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm md:text-base"
         >
           Send Message
         </button>
         {feedback && (
-          <p className="mt-4 text-center text-secondary font-semibold">
+          <p className="mt-4 text-center text-secondary font-semibold text-sm md:text-base">
             {feedback}
           </p>
         )}

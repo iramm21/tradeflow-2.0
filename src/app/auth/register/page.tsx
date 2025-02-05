@@ -35,8 +35,10 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
-      <div className="w-full max-w-md bg-white p-6 rounded shadow-lg">
-        <h1 className="text-3xl font-bold mb-4 text-center">Sign Up</h1>
+      <div className="w-full max-w-md bg-white p-4 md:p-6 rounded shadow-lg">
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+          Sign Up
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 mb-1">Name</label>
@@ -70,16 +72,18 @@ export default function RegisterPage() {
               required
             />
           </div>
-          {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
+          {errorMsg && (
+            <p className="text-red-500 text-sm md:text-base">{errorMsg}</p>
+          )}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+            className="w-full py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition-colors text-sm md:text-base"
           >
             Sign Up
           </button>
         </form>
         <div className="text-center mt-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-xs md:text-sm text-gray-600">
             Already have an account?{" "}
             <Link href="/auth/login" className="text-green-600 hover:underline">
               Log In

@@ -3,16 +3,21 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const { data: session } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
 
+  // Hide or show navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -28,6 +33,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -41,6 +47,23 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleMobileMenuClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleMobileMenuClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleMobileMenuClickOutside);
+  }, [mobileMenuOpen]);
 
   const userId = session?.user?.id;
   const dashboardLink = userId ? `/user/${userId}/dashboard` : "/auth/login";
@@ -62,7 +85,8 @@ export default function Navbar() {
               TradeFlow
             </span>
           </Link>
-          <div className="flex items-center space-x-6">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
             <Link href="/about">
               <span className="text-white hover:text-gray-200">About</span>
             </Link>
@@ -139,7 +163,76 @@ export default function Navbar() {
               )}
             </div>
           </div>
+          {/* Mobile Navigation Toggle */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMobileMenu}
+              className="text-white focus:outline-none"
+            >
+              {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+          </div>
         </div>
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div
+            ref={mobileMenuRef}
+            className="md:hidden bg-gradient-to-r from-primary to-secondary"
+          >
+            <div className="px-4 py-2 space-y-2 flex flex-col">
+              <Link href="/about">
+                <span className="text-white hover:text-gray-200">About</span>
+              </Link>
+              <Link href="/pricing">
+                <span className="text-white hover:text-gray-200">Pricing</span>
+              </Link>
+              <Link href="/contact">
+                <span className="text-white hover:text-gray-200">Contact</span>
+              </Link>
+              {session ? (
+                <>
+                  <Link href={dashboardLink}>
+                    <span className="text-white hover:text-gray-200">
+                      Dashboard
+                    </span>
+                  </Link>
+                  <Link href={accountLink}>
+                    <span className="text-white hover:text-gray-200">
+                      My Account
+                    </span>
+                  </Link>
+                  <Link href={settingsLink}>
+                    <span className="text-white hover:text-gray-200">
+                      Settings
+                    </span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      signOut();
+                      toggleMobileMenu();
+                    }}
+                    className="text-white text-left"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/auth/login">
+                    <span className="text-white hover:text-gray-200">
+                      Log In
+                    </span>
+                  </Link>
+                  <Link href="/auth/register">
+                    <span className="text-white hover:text-gray-200">
+                      Sign Up
+                    </span>
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

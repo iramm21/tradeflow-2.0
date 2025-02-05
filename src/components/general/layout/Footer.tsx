@@ -6,18 +6,18 @@ export default function Footer() {
   return (
     <footer className="bg-backgroundDarkest text-foregroundLightest py-6">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-        <p className="text-sm">
+        <p className="text-xs md:text-sm">
           &copy; {new Date().getFullYear()} TradeFlow. All rights reserved.
         </p>
-        <div className="space-x-4">
-          <Link href="/(root)/about">
-            <span className="hover:text-white text-sm">About</span>
+        <div className="flex space-x-4 mt-2 md:mt-0">
+          <Link href="/about">
+            <span className="text-xs md:text-sm hover:text-white">About</span>
           </Link>
-          <Link href="/(root)/contact">
-            <span className="hover:text-white text-sm">Contact</span>
+          <Link href="/contact">
+            <span className="text-xs md:text-sm hover:text-white">Contact</span>
           </Link>
-          <Link href="/(root)/pricing">
-            <span className="hover:text-white text-sm">Pricing</span>
+          <Link href="/pricing">
+            <span className="text-xs md:text-sm hover:text-white">Pricing</span>
           </Link>
         </div>
       </div>

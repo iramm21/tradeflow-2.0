@@ -4,12 +4,12 @@ import PricingCard from "@/components/general/cards/PricingCard";
 
 export default function PricingPlans() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-foreground mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
           Choose Your Plan
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <PricingCard
             title="Basic"
             price="$9.99"

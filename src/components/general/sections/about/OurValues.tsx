@@ -2,12 +2,12 @@
 
 export default function OurValues() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12 md:py-16">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-foreground mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
           Our Values
         </h2>
-        <ul className="space-y-4 text-lg text-foregroundLight">
+        <ul className="space-y-2 md:space-y-4 text-sm md:text-lg text-foregroundLight">
           <li>
             <strong>Integrity:</strong> We are committed to honest and
             transparent service, always putting the needs of our customers

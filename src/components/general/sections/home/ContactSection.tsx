@@ -18,19 +18,19 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-backgroundLight py-16">
+    <section className="bg-backgroundLight py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-foreground mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
           Contact Us
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="space-y-4">
-            <p className="text-lg text-foregroundLight">
+            <p className="text-sm md:text-base text-foregroundLight">
               Have any questions or want to learn more about TradeFlow? Feel
               free to reach out!
             </p>
-            <p className="text-foregroundLight">
+            <p className="text-sm md:text-base text-foregroundLight">
               Email:{" "}
               <a
                 href="mailto:support@tradeflow.example.com"
@@ -39,7 +39,7 @@ export default function ContactSection() {
                 support@tradeflow.example.com
               </a>
             </p>
-            <p className="text-foregroundLight">
+            <p className="text-sm md:text-base text-foregroundLight">
               Phone:{" "}
               <a
                 href="tel:+1234567890"
@@ -53,12 +53,12 @@ export default function ContactSection() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="space-y-4 bg-background p-6 rounded shadow-lg"
+              className="space-y-4 bg-white p-4 md:p-6 rounded shadow-lg"
             >
               <div>
                 <label
                   htmlFor="contact-name"
-                  className="block text-foreground mb-1"
+                  className="block text-sm md:text-base text-foreground mb-1"
                 >
                   Name
                 </label>
@@ -68,14 +68,14 @@ export default function ContactSection() {
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm md:text-base"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="contact-email"
-                  className="block text-foreground mb-1"
+                  className="block text-sm md:text-base text-foreground mb-1"
                 >
                   Email
                 </label>
@@ -85,14 +85,14 @@ export default function ContactSection() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm md:text-base"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="block text-foreground mb-1"
+                  className="block text-sm md:text-base text-foreground mb-1"
                 >
                   Message
                 </label>
@@ -101,18 +101,18 @@ export default function ContactSection() {
                   placeholder="Your Message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm md:text-base"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+                className="w-full py-2 px-4 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm md:text-base"
               >
                 Send Message
               </button>
               {feedback && (
-                <p className="mt-4 text-center text-secondary font-semibold">
+                <p className="mt-4 text-center text-secondary font-semibold text-sm md:text-base">
                   {feedback}
                 </p>
               )}
