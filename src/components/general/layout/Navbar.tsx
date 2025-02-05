@@ -11,14 +11,11 @@ export default function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Toggle the dropdown menu
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
-  // Hide navbar on scroll down, show on scroll up
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      // Hide navbar if scrolling down and scrolled more than 100px
       if (currentScrollPos > prevScrollPos && currentScrollPos > 100) {
         setShowNavbar(false);
       } else {
@@ -31,7 +28,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
-  // Auto-close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -46,10 +42,17 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const userId = session?.user?.id;
+  const dashboardLink = userId ? `/user/${userId}/dashboard` : "/auth/login";
+  const accountLink = userId ? `/user/${userId}/account` : "/auth/login";
+  const settingsLink = userId
+    ? `/user/${userId}/dashboard/settings`
+    : "/auth/login";
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
-        showNavbar ? "transform translate-y-0" : "transform -translate-y-full"
+        showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="bg-gradient-to-r from-primary to-secondary shadow-md">
@@ -61,19 +64,13 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center space-x-6">
             <Link href="/about">
-              <span className="text-white hover:text-foregroundLight">
-                About
-              </span>
+              <span className="text-white hover:text-gray-200">About</span>
             </Link>
             <Link href="/pricing">
-              <span className="text-white hover:text-foregroundLight">
-                Pricing
-              </span>
+              <span className="text-white hover:text-gray-200">Pricing</span>
             </Link>
             <Link href="/contact">
-              <span className="text-white hover:text-foregroundLight">
-                Contact
-              </span>
+              <span className="text-white hover:text-gray-200">Contact</span>
             </Link>
             <div className="relative" ref={dropdownRef}>
               <button
@@ -102,17 +99,17 @@ export default function Navbar() {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg z-10">
                   {session ? (
                     <>
-                      <Link href="/dashboard">
+                      <Link href={dashboardLink}>
                         <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                           Dashboard
                         </div>
                       </Link>
-                      <Link href="/account">
+                      <Link href={accountLink}>
                         <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                           My Account
                         </div>
                       </Link>
-                      <Link href="/settings">
+                      <Link href={settingsLink}>
                         <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                           Settings
                         </div>

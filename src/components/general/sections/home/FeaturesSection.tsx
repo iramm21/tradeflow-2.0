@@ -1,6 +1,6 @@
 "use client";
 
-import FeatureCard from "@/components/cards/FeatureCard";
+import FeatureCard from "@/components/general/cards/FeatureCard";
 import { FiSettings, FiTrendingUp, FiUserCheck } from "react-icons/fi";
 
 export default function FeaturesSection() {

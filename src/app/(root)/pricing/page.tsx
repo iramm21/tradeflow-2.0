@@ -1,8 +1,8 @@
 "use client";
 
-import PricingHero from "@/components/sections/pricing/PricingHero";
-import PricingPlans from "@/components/sections/pricing/PricingPlans";
-import PricingFAQ from "@/components/sections/pricing/PricingFAQ";
+import PricingHero from "@/components/general/sections/pricing/PricingHero";
+import PricingPlans from "@/components/general/sections/pricing/PricingPlans";
+import PricingFAQ from "@/components/general/sections/pricing/PricingFAQ";
 
 export default function PricingPage() {
   return (
