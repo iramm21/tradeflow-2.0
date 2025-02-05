@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-background">
+    <section className="relative bg-backgroundLight">
       <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
         <div className="flex-1">
           <h1 className="text-5xl md:text-6xl font-extrabold text-foreground mb-4">

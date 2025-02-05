@@ -18,7 +18,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-backgroundDark py-16">
+    <section className="bg-backgroundLight py-16">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-foreground mb-8">
           Contact Us
@@ -53,7 +53,7 @@ export default function ContactSection() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="space-y-4 bg-white p-6 rounded shadow-lg"
+              className="space-y-4 bg-background p-6 rounded shadow-lg"
             >
               <div>
                 <label

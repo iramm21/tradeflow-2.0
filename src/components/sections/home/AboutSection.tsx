@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutUsSection() {
   return (
-    <section className="bg-background py-16">
+    <section className="bg-backgroundLight py-16">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         {/* Text Content */}
         <div className="flex-1">
