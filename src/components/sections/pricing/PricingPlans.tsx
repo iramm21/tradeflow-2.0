@@ -1,0 +1,56 @@
+"use client";
+
+import PricingCard from "@/components/cards/PricingCard";
+
+export default function PricingPlans() {
+  return (
+    <section className="bg-white py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-foreground mb-8">
+          Choose Your Plan
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <PricingCard
+            title="Basic"
+            price="$9.99"
+            billingPeriod="month"
+            features={[
+              "Manage up to 5 projects",
+              "Basic analytics",
+              "Email support",
+            ]}
+            buttonText="Get Started"
+            buttonLink="/auth/register"
+          />
+          <PricingCard
+            title="Pro"
+            price="$19.99"
+            billingPeriod="month"
+            features={[
+              "Unlimited projects",
+              "Advanced analytics",
+              "Priority support",
+              "Team collaboration",
+            ]}
+            buttonText="Choose Pro"
+            buttonLink="/auth/register"
+            isHighlighted
+          />
+          <PricingCard
+            title="Enterprise"
+            price="Custom"
+            billingPeriod="contact us"
+            features={[
+              "Custom project management",
+              "Dedicated support",
+              "Advanced integrations",
+              "Onboarding assistance",
+            ]}
+            buttonText="Contact Us"
+            buttonLink="/contact"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
