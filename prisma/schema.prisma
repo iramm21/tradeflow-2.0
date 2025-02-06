@@ -1,3 +1,4 @@
+// Connection to the database and the data model.
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -7,7 +8,8 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// Enums for Project and Task statuses.
+// Enums
+
 enum ProjectStatus {
   pending
   in_progress
@@ -21,6 +23,8 @@ enum TaskStatus {
   completed
   cancelled
 }
+
+// Models
 
 // User model: Represents app users. You might later expand roles/permissions.
 model User {
