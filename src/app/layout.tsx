@@ -44,7 +44,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Optionally add additional meta tags or font links here */}
+        {/* Favicon and Fonts */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+        />
+        {/* Additional meta tags can be added here */}
       </head>
       <body className="antialiased flex flex-col min-h-screen">
         <SessionProviderWrapper>

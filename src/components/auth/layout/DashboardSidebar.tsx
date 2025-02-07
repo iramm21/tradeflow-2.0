@@ -11,6 +11,7 @@ export default function DashboardSidebar() {
   const pathname = usePathname();
   const { userId } = useParams(); // Expecting the URL to be /user/[userId]/dashboard
 
+  // Navigation items for the sidebar
   const navItems = [
     { label: "Home", href: `/user/${userId}/dashboard` },
     { label: "My Account", href: `/user/${userId}/account` },
@@ -35,20 +36,25 @@ export default function DashboardSidebar() {
 
   return (
     <>
+      {/* ========================= */}
       {/* Mobile Toggle Button */}
+      {/* ========================= */}
       <div className="md:hidden p-4">
         <button
           onClick={() => setOpen(!open)}
+          aria-label="Toggle Sidebar"
           className="text-primary focus:outline-none"
         >
           {open ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
 
+      {/* ========================= */}
       {/* Mobile Sidebar */}
+      {/* ========================= */}
       <div
         ref={sidebarRef}
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-100 border-r p-4 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-backgroundLight border-r border-foregroundLight p-4 transform transition-transform duration-300 ease-in-out md:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -57,8 +63,10 @@ export default function DashboardSidebar() {
             <Link key={item.href} href={item.href}>
               <span
                 onClick={() => setOpen(false)}
-                className={`block px-4 py-2 rounded hover:bg-gray-200 transition-colors ${
-                  pathname === item.href ? "bg-gray-200 font-bold" : ""
+                className={`block px-4 py-2 rounded transition-colors cursor-pointer ${
+                  pathname === item.href
+                    ? "bg-backgroundDark font-bold text-foregroundLightest"
+                    : "hover:bg-backgroundDark"
                 }`}
               >
                 {item.label}
@@ -68,7 +76,9 @@ export default function DashboardSidebar() {
         </nav>
       </div>
 
+      {/* ========================= */}
       {/* Mobile Overlay */}
+      {/* ========================= */}
       {open && (
         <div
           className="fixed inset-0 z-40 bg-black opacity-50"
@@ -76,15 +86,19 @@ export default function DashboardSidebar() {
         ></div>
       )}
 
+      {/* ========================= */}
       {/* Desktop Sidebar */}
+      {/* ========================= */}
       <div className="hidden md:block md:w-64">
-        <aside className="bg-gray-100 border-r p-4 min-h-screen">
+        <aside className="bg-backgroundLight border-r border-foregroundLight p-4 min-h-screen">
           <nav className="flex flex-col space-y-2">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
                 <span
-                  className={`block px-4 py-2 rounded hover:bg-gray-200 transition-colors ${
-                    pathname === item.href ? "bg-gray-200 font-bold" : ""
+                  className={`block px-4 py-2 rounded transition-colors cursor-pointer ${
+                    pathname === item.href
+                      ? "bg-backgroundDark font-bold text-foregroundLightest"
+                      : "hover:bg-backgroundDark"
                   }`}
                 >
                   {item.label}

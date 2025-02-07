@@ -6,13 +6,24 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Skip Navigation Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="absolute left-4 top-4 z-50 bg-primary text-white p-2 rounded focus:outline-none focus:ring"
+      >
+        Skip to content
+      </a>
+
+      {/* Site Navigation */}
       <Navbar />
-      <main className="flex-grow pt-16">
-        {/* Wrap main content in a container for responsive horizontal padding */}
-        <div className="px-4 md:px-8 lg:px-16">
-          {children}
-        </div>
+
+      {/* Main Content Area */}
+      <main id="main-content" className="flex-grow pt-16">
+        {/* Responsive container for horizontal padding */}
+        <div className="">{children}</div>
       </main>
+
+      {/* Site Footer */}
       <Footer />
     </div>
   );

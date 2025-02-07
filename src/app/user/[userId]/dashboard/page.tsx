@@ -1,30 +1,72 @@
+// pages/dashboard.tsx
 "use client";
 
-import DashboardSummaryCard from "@/components/auth/cards/DashboardSummaryCard";
-import RecentProjectsCard from "@/components/auth/cards/RecentProjectsCard";
-import QuickActionsCard from "@/components/auth/cards/QuickActionsCard";
+import React from "react";
 
-// Dummy data for demonstration
-const dummyProjects = [
-  { id: "1", name: "Project Alpha", status: "in progress" },
-  { id: "2", name: "Project Beta", status: "completed" },
-  { id: "3", name: "Project Gamma", status: "pending" },
-];
-
-export default function DashboardPage() {
+const Dashboard: React.FC = () => {
   return (
-    <div className="p-4 md:p-8 space-y-8">
-      {/* Summary Cards: single column on mobile, 3 columns on medium and up */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-        <DashboardSummaryCard title="Total Projects" value="12" />
-        <DashboardSummaryCard title="Active Jobs" value="7" />
-        <DashboardSummaryCard title="Employees" value="5" />
-      </div>
-      {/* Projects and Quick Actions: single column on mobile, 2 columns on medium and up */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-        <RecentProjectsCard projects={dummyProjects} />
-        <QuickActionsCard />
+    // Base container for the dashboard with background and text colors
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Dashboard Container */}
+      <div className="container mx-auto px-4 py-8">
+        {/* ========================= */}
+        {/* Dashboard Header Section */}
+        {/* ========================= */}
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="text-foregroundLight mt-2">
+            Welcome back! Here&apos;s an overview of your recent activity.
+          </p>
+        </header>
+
+        {/* ========================= */}
+        {/* Dashboard Metrics Cards */}
+        {/* ========================= */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Active Jobs Card */}
+          <div className="bg-backgroundLight p-6 rounded shadow">
+            <h2 className="text-xl font-semibold mb-2">Active Jobs</h2>
+            <p className="text-4xl font-bold">12</p>
+          </div>
+          {/* Upcoming Appointments Card */}
+          <div className="bg-backgroundLight p-6 rounded shadow">
+            <h2 className="text-xl font-semibold mb-2">
+              Upcoming Appointments
+            </h2>
+            <p className="text-4xl font-bold">5</p>
+          </div>
+          {/* Invoices Sent Card */}
+          <div className="bg-backgroundLight p-6 rounded shadow">
+            <h2 className="text-xl font-semibold mb-2">Invoices Sent</h2>
+            <p className="text-4xl font-bold">8</p>
+          </div>
+        </section>
+
+        {/* ========================= */}
+        {/* Recent Activity Section */}
+        {/* ========================= */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Recent Activity</h2>
+          <div className="bg-backgroundLight p-6 rounded shadow">
+            <ul className="space-y-4">
+              <li className="border-b border-foregroundLight pb-2">
+                Job #345 completed on 2023-02-01
+              </li>
+              <li className="border-b border-foregroundLight pb-2">
+                Invoice #123 sent on 2023-02-02
+              </li>
+              <li className="border-b border-foregroundLight pb-2">
+                New appointment scheduled on 2023-02-03
+              </li>
+              <li className="border-b border-foregroundLight pb-2">
+                Job #346 started on 2023-02-04
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
-}
+};
+
+export default Dashboard;

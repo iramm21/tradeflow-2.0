@@ -1,12 +1,12 @@
 :root {
   /* Branding Colors */
-  --background: #f9fafb; /* Light gray/white background */
+  --background: #f7f7f7; /* Light gray/white background */
   --background-light: #ffffff; /* Lighter background */
-  --background-dark: #e5e7eb; /* Darker background */
+  --background-dark: #b4b6b9; /* Darker background */
   --background-darkest: #1a202c; /* Darkest background */
   --foreground: #1f2937; /* Dark gray text */
   --foreground-light: #6b7280; /* Lighter gray text */
-  --foreground-lightest: #9ca3af; /* Lightest gray text */
+  --foreground-lightest: #ffffff; /* Lightest gray text */
   --primary: #3b82f6; /* Blue for primary elements */
   --secondary: #10b981; /* Green for secondary elements */
   --accent: #f59e0b; /* Amber for accents or highlights */

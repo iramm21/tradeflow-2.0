@@ -14,10 +14,12 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
+  // Toggle dropdown for desktop account menu
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  // Toggle mobile navigation menu
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
 
-  // Hide or show navbar on scroll
+  // Hide or show navbar on scroll for better UX
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -65,6 +67,7 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleMobileMenuClickOutside);
   }, [mobileMenuOpen]);
 
+  // Build account-related links based on session status
   const userId = session?.user?.id;
   const dashboardLink = userId ? `/user/${userId}/dashboard` : "/auth/login";
   const accountLink = userId ? `/user/${userId}/account` : "/auth/login";
@@ -80,6 +83,7 @@ export default function Navbar() {
     >
       <div className="bg-gradient-to-r from-primary to-secondary shadow-md">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          {/* Logo */}
           <Link href="/">
             <span className="text-2xl font-bold text-white cursor-pointer">
               TradeFlow
@@ -96,10 +100,13 @@ export default function Navbar() {
             <Link href="/contact">
               <span className="text-white hover:text-gray-200">Contact</span>
             </Link>
+            {/* Account Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
-                className="flex items-center space-x-2 bg-white text-foreground px-3 py-1 rounded-full hover:bg-gray-200 transition-colors"
+                aria-haspopup="true"
+                aria-expanded={dropdownOpen}
+                className="flex items-center space-x-2 bg-white text-foreground px-3 py-1 rounded-full hover:bg-gray-200 transition-colors focus:outline-none"
               >
                 <span>
                   {session ? session.user?.name || "Account" : "Account"}
@@ -167,6 +174,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMobileMenu}
+              aria-label="Toggle Mobile Menu"
               className="text-white focus:outline-none"
             >
               {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
